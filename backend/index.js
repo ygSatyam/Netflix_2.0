@@ -19,12 +19,15 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(cookieParser());
 const corsOptions = {
-     origin: [
+    origin: [
         "http://localhost:3000",
         "https://netflix-2-0-beryl.vercel.app"
     ],
-    credentials:true
-}
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+};
+
 app.use(cors(corsOptions));
  
 // api
